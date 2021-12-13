@@ -81,12 +81,13 @@ class Sphere(Object):
         cp = p - self.center
         res = x - x
         if cp.norm() < (self.radius + self.drest):
-            if (x - self.center).norm() < self.radius + self.drest:
+            #if (x - self.center).norm() < self.radius + self.drest:
             
                 
-                n = cp / cp.norm()
+            n = cp / cp.norm()
 
-                res = (self.radius + self.drest - cp.norm()) * n
+            res = (self.radius + self.drest - cp.norm()) * n
+            """
             else:
                 
                 d = p - x
@@ -107,4 +108,5 @@ class Sphere(Object):
                 
                 C = (p - collision_point).dot(n) - self.drest
                 res =  - C * n
+            """
         return res

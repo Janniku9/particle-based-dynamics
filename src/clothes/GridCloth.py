@@ -21,7 +21,7 @@ class GridCloth(Cloth):
         color : tuple(r, g, b)
             rgb color of the cloth
     """ 
-    def __init__(self, N=(64, 64), S=(1, 1), W = 1, KS=0.6, KB=0.4, KC=0.4, KD=0, KL=0, DAMPING=0.9, center=ti.Vector([0, 0, 0]), color=(1, 1, 1)):
+    def __init__(self, N=(64, 64), S=(1, 1), W = 1, KS=1.0, KB=0.5, KC=1.0, KD=0, KL=0, DAMPING=0.9, center=ti.Vector([0, 0, 0]), color=(1, 1, 1)):
         self.N, self.M = N
         self.SN, self.SM = S
         self.center = center

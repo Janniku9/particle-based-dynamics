@@ -111,6 +111,10 @@ class Simulation():
         if not os.path.isdir(self.temp_path):
             os.mkdir(self.temp_path)
 
+        for f in os.listdir(self.temp_path):
+            filename = os.path.join(self.temp_path, f)
+            os.remove(filename)
+
     def set_wind(self, force):
         self.WIND = force
 
@@ -143,7 +147,7 @@ class Simulation():
             c.solve_bending_constraints(self.NUM_ITERATIONS)
             if self.selfCollision:
                 c.solve_self_collision_constraints(self.DT)
-            
+
             
         
         c.apply_correction(self.DT)

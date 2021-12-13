@@ -102,7 +102,8 @@ class Cloth(object, metaclass=ABCMeta):
         for i in range(self.V):
             self.dv[i] /= self.nt[i]
             self.dv[i].z += DT * G
-            self.v[i] += self.DAMPING * self.dv[i]
+            self.v[i] += self.dv[i]
+            self.v[i] *= self.DAMPING 
 
     @ti.kernel
     def make_predictions(self, DT : ti.f32):
